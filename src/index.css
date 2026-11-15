@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --font-tech: "Share Tech Mono", monospace;
+  --font-mono: "Roboto Mono", monospace;
+}
+
+@layer base {
+  html,
+  body {
+    background-color: #030712;
+    color: #cffafe;
+    font-family: "Roboto Mono", monospace;
+    overscroll-behavior: none;
+  }
+
+  body {
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.14), transparent 58%),
+      linear-gradient(rgba(0, 240, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.045) 1px, transparent 1px);
+    background-size: 100% 100%, 22px 22px, 22px 22px;
+  }
+}
+
+.tactical-shell {
+  background-color: rgba(4, 8, 18, 0.94);
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.025) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.tactical-card {
+  background: linear-gradient(180deg, rgba(8, 17, 34, 0.92) 0%, rgba(4, 10, 22, 0.96) 100%);
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(0, 240, 255, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.rotary-dial {
+  background: radial-gradient(circle at 30% 30%, #0e2240, #030812);
+  box-shadow:
+    0 0 14px rgba(0, 240, 255, 0.22),
+    inset 0 0 10px rgba(0, 240, 255, 0.15);
+}
+
+.rotary-dial:hover {
+  box-shadow:
+    0 0 22px rgba(0, 240, 255, 0.5),
+    inset 0 0 12px rgba(0, 240, 255, 0.28);
+}
+
+.ptt-circle {
+  background: radial-gradient(circle at 50% 35%, rgba(0, 240, 255, 0.2), rgba(5, 14, 30, 0.96) 72%);
+  border: 3px solid #00f0ff;
+  box-shadow:
+    0 0 26px rgba(0, 240, 255, 0.45),
+    0 0 60px rgba(0, 240, 255, 0.16),
+    inset 0 0 24px rgba(0, 240, 255, 0.22);
+  transition: transform 0.08s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  touch-action: none;
+  -webkit-touch-callout: none;
+}
+
+.ptt-circle.tx-active {
+  transform: scale(0.95);
+  border-color: #ff2a55;
+  background: radial-gradient(circle at 50% 35%, rgba(255, 42, 85, 0.34), rgba(26, 5, 14, 0.98) 72%);
+  animation: pttGlowPulse 0.95s infinite ease-in-out;
+}
+
+.ptt-circle.rx-active {
+  border-color: #00ff88;
+  background: radial-gradient(circle at 50% 35%, rgba(0, 255, 136, 0.22), rgba(5, 22, 18, 0.96) 72%);
+  box-shadow:
+    0 0 28px rgba(0, 255, 136, 0.5),
+    inset 0 0 22px rgba(0, 255, 136, 0.25);
+}
+
+@keyframes pttGlowPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 28px rgba(255, 42, 85, 0.65),
+      inset 0 0 22px rgba(255, 42, 85, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 48px rgba(255, 42, 85, 0.95),
+      inset 0 0 34px rgba(255, 42, 85, 0.55);
+  }
+}
+
+.tactical-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #0e2846;
+  border-radius: 999px;
+  outline: none;
+}
+
+.tactical-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00f0ff;
+  box-shadow: 0 0 8px #00f0ff;
+  cursor: pointer;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: rgba(4, 8, 18, 0.6);
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.35);
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ptt-circle.tx-active {
+    animation: none;
+  }
+}

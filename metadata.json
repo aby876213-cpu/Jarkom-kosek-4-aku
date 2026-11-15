@@ -1,0 +1,10 @@
+{
+  "name": "Remix TACTICAL COMMS KOSEK IV - AKU",
+  "description": "Aplikasi HT Internet / Push-To-Talk (PTT) taktis real-time berbasis WebRTC (OPUS 16kHz), WebSockets, dan enkripsi End-to-End AES-GCM.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
